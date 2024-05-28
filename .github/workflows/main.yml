@@ -1,0 +1,22 @@
+name: Das deploy
+on:
+  # Triggers the workflow on push events for the "main" branch
+  push:
+    branches: [ "main" ]
+
+  # Triggers the workflow on pull request events for the "main" branch, only when the PR is merged
+  pull_request:
+    branches: [ "main" ]
+    types: [ merged ]
+
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+      - name: Install packages
+        run: npm ci
+      - name: Bundle
+        run: npm run build
