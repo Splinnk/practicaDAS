@@ -20,6 +20,5 @@ jobs:
         run: npm ci
       - name: Bundle
         run: npm run build
-      - name: Vercel Action
-        uses: amondnet/vercel-action@v25.2.0
+      
             
